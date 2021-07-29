@@ -7,8 +7,8 @@
 int _printf(const char *format, ...)
 {
 	form_t function[] = {
-		{"c", printf_char},
-		{"s", printf_string},
+		{"c", print_char},
+		{"s", print_string},
 		{NULL}
 	};
 
