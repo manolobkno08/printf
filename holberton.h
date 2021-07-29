@@ -17,11 +17,11 @@ typedef struct format
 	int (*func)(va_list);
 } form_t;
 
-int _printf(const char *format, ...);
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(va_list);
 int print_string(va_list);
+
 int print_decimal(va_list i);
 int print_int(va_list d);
 int print_unsigned_int(va_list u);

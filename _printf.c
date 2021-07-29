@@ -2,17 +2,17 @@
 /**
  * _printf - own function
  * @format: list of characters
- * Return: 0
+ * Return: i
  */
 int _printf(const char *format, ...)
 {
 	form_t function[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{NULL, NULL}
+		{"c", printf_char},
+		{"s", printf_string},
+		{NULL}
 	};
 
-	int i, j, x = 0, f = 0;
+	int i, j, x = 0;
 	va_list list;
 
 	va_start(list, format);
@@ -28,11 +28,13 @@ int _printf(const char *format, ...)
 				continue;
 			}
 
-			else if (format[i + 1] == function[f].str[0])
+			for (j = 0; function[j].str != NULL; j++)
 			{
-				x = x + function[f].func(list);
-				i++;
-				continue;
+				if (format[i + 1] == function[j].str[0])
+				{
+					x = x + function[j].func(list);
+					i = i + 2;
+				}
 			}
 		}
 		_putchar(format[i]);
