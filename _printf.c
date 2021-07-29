@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		{NULL, NULL}
 	};
 
-	int i, j, x = 0;
+	int i, j, x = 0, f = 0;
 	va_list list;
 
 	va_start(list, format);
@@ -28,14 +28,11 @@ int _printf(const char *format, ...)
 				continue;
 			}
 
-			for (j = 0; format[j]; j++)
+			else if (format[i + 1] == function[f].str[0])
 			{
-				if (format[i + 1] == function[j].carac[0])
-				{
-					x = x + function[j].func(list);
-					i++;
-					continue;
-				}
+				x = x + function[f].func(list);
+				i++;
+				continue;
 			}
 		}
 		_putchar(format[i]);
