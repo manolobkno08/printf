@@ -7,13 +7,13 @@
 #include <string.h>
 
 /**
- * struct printf - our own printf function
- * @print: char pointer
- * @f: function associated
+ * struct format - our own printf function
+ * @str: char pointer
+ * @func: function associated
  */
-typedef struct printf
+typedef struct format
 {
-	char *carac;
+	char *str;
 	int (*func)(va_list);
 } form_t;
 
@@ -28,4 +28,3 @@ int print_unsigned_int(va_list u);
 int print_unsigned_octal(va_list o);
 int print_unsigned_hexa(va_list x);
 #endif
-
