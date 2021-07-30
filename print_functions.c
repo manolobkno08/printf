@@ -9,7 +9,7 @@ int print_char(va_list list)
 {
 	char c = va_arg(list, int);
 
-	_putchar (c);
+	_putchar(c);
 	return (1);
 }
 
@@ -28,4 +28,32 @@ int print_string(va_list list)
 		_putchar (s[i]);
 	}
 	return (i);
+}
+
+/**
+* print_decimal - print decimal
+* @list: va_list
+* Return: 1
+*/
+
+int print_decimal(va_list list)
+{
+	int i = va_arg(list, int);
+
+	_putchar(i);
+	return (1);
+}
+
+/**
+* print_int - print a int
+* @list: va_list
+* Return: 1
+*/
+
+int print_int(va_list list)
+{
+	int d = va_arg(list, int);
+
+	_putchar(d);
+	return (1);
 }

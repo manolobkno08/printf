@@ -9,12 +9,12 @@ int _printf(const char *format, ...)
 	form_t function[] = {
 		{"c", print_char},
 		{"s", print_string},
+		{"d", print_decimal},
+		{"i", print_int},
 		{NULL}
 	};
-
 	int i, j, x = 0;
 	va_list list;
-
 	va_start(list, format);
 
 	for (i = 0; format[i]; i++)
@@ -25,6 +25,7 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				i++;
+				x++;
 				continue;
 			}
 
@@ -38,11 +39,10 @@ int _printf(const char *format, ...)
 			}
 		}
 		_putchar(format[i]);
+		x++;
 	}
 
-	i = x + 1;
-
+	i = x + i;
 	va_end(list);
-
 	return (i);
 }
